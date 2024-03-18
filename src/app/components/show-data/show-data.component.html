@@ -1,0 +1,74 @@
+<div class="container d-flex justify-content-center mb-4 mt-4">
+  <div class="col-md-4">
+    <input
+      type="text"
+      class="form-control mb-4"
+      placeholder="Search Data..."
+      [(ngModel)]="inputValue"
+      (keyup)="searchDataByName()"
+    />
+  </div>
+</div>
+@if (copyUserData.length>0) {
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Contact Number</th>
+      <th>Password</th>
+      <th>Profile</th>
+      <th>User Image</th>
+      <th [colSpan]="2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of copyUserData | paginate:{ itemsPerPage:itemsPerPageSize,
+    currentPage:currentPage }; track item.id ) {
+
+    <tr>
+      <td>{{ item.id }}</td>
+      <td><span [innerHTML]="markText(item.name)"></span></td>
+      <td>{{ item.email }}</td>
+      <td>{{ item.contactNumber }}</td>
+      <td>{{ item.password | passwordHidden }}</td>
+      <td>{{ item.profile }}</td>
+      <td>
+        <img
+          [src]="item.avatar"
+          alt="User Image"
+          [ngStyle]="{ width: '50px', height: '50px', borderRadius: '50%' }"
+        />
+      </td>
+      <td>
+        <button class="btn btn-warning btn-sm" (click)="goToEditDataPath(item.id)">
+          Edit
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-danger btn-sm" (click)="deleteData(item.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+} @else {
+<div
+  class="d-flex justify-content-center align-items-center"
+  [ngStyle]="{ minHeight: '80vh', background: '#ffff1' }"
+>
+  @defer {
+  <div>
+    <h5>No Data Found !</h5>
+  </div>
+  } @loading(minimum 1s) {
+  <div class="loader"></div>
+  }
+</div>
+}
+
+<pagination-controls class="text-center" (pageChange)="currentPage = $event">
+</pagination-controls>

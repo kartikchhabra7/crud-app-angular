@@ -1,27 +1,39 @@
-# MyApp
+# Angular CRUD App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
+## Description
 
-## Development server
+This repository contains a CRUD (Create, Read, Update, Delete) application built with Angular 17. The app uses reactive forms for data management, includes a search feature for filtering data, and implements pagination for better data presentation.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- **Create:** Add new records to the database.
+- **Read:** Display existing records.
+- **Update:** Edit and update existing records.
+- **Delete:** Remove records from the database.
+- **Search:** Search functionality to filter data based on keywords.
+- **Pagination:** Navigate through paginated data for better user experience.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies Used
 
-## Build
+- Angular 17 Version
+- Reactive Forms for data handling
+- Angular Router for navigation
+- RxJS for reactive programming
+- ngx-pagination for pagination features
+- ngx-toastr for displaying notifications
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the repository to your local machine :
 
-## Running end-to-end tests
+   ```bash
+   Clone the repository with git clone or direct download the zip file
+2. Install Dependencies :
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   npm install
+3. Start the development server:
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    ```bash
+    ng serve
